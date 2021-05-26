@@ -21,7 +21,9 @@ namespace NewCardNumber.Models
 
         [MaxLength(19)]
         public string CardNumber { get; set; }
-
+        
+        
+        public string CardsByEmail {get;set;}
     }
 
 }

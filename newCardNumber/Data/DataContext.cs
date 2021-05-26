@@ -9,5 +9,7 @@ namespace NewCardNumber.Data
             : base(options) { }
 
         public DbSet<Client> Clients { get; set; }
+        
+        //public DbSet<string> AllCardNumbers { get; set; }
     }
 }

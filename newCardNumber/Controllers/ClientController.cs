@@ -19,36 +19,43 @@ namespace NewCardNumber.Controllers
             [FromBody] Client model,
             [FromQuery] NewCardNumberClass action)
         {
+            bool BoolAux = true;
+
             if (ModelState.IsValid)
             {
                 model.CardNumber = action.CreateCardNumber(model.CardBrand);
+                /*while (BoolAux == true)
+                {
+                    for (int i = 0; i < context.AllCardNumbers.Count(); i++)
+                    {
+                        if (context.AllCardNumbers.ElementAt(i) == model.CardNumber)
+                        {
+                            model.CardNumber = action.CreateCardNumber(model.CardBrand);
+                        }
+                        else { BoolAux = false; }
+                    }
+                }*/
+
+                //context.AllCardNumbers.Add(model.CardNumber);
                 context.Clients.Add(model);
                 await context.SaveChangesAsync();
+
+                for (int i = 0; i < context.Clients.Count(); i++)
+                {
+                    if (context.Clients.ElementAt(i).Email == model.Email)
+                    {
+                        model.CardsByEmail = context.Clients.ElementAt(i).CardNumber;
+
+                    }
+                }
                 return model;
+
+
             }
             else
             {
                 return BadRequest(ModelState);
             }
         }
-
-        /*[HttpGet]
-        [Route("consult/{email:string}")]
-        public async Task<ActionResult<List<Client>>> Post(
-            [FromServices] DataContext context,
-            [FromBody] Client model,
-            [FromQuery] NewCardNumberClass action,
-            string email)
-        {
-            for (int i = 0; i < context.Clients.Count(); i++)
-            {
-                if(model.Email == email)
-                {
-                    context.Clients.Find(email)
-                }
-            }
-            return;
-*/
-
-        }
     }
+}

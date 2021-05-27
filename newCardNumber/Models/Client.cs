@@ -6,8 +6,8 @@ namespace NewCardNumber.Models
     public class Client
     {
         [Key]
-
         public int Id { get; set; }
+
         [Required(ErrorMessage = "Este Parametro é obrigatório")]
         [MaxLength(60, ErrorMessage = "Este campo deve conter entre 3 a 60 caracteres")]
         [MinLength(3, ErrorMessage = "Este campo deve conter entre 3 a 60 caracteres")]
@@ -19,11 +19,7 @@ namespace NewCardNumber.Models
         [MinLength(1, ErrorMessage = "Este campo deve conter um caracter sendo ele: 'v' para Visa ou 'm' para Mastercard")]
         public string CardBrand { get; set; }
 
-        [MaxLength(19)]
-        public string CardNumber { get; set; }
-        
-        
-        public string CardsByEmail {get;set;}
+        public Card Card { get; set; }
     }
 
 }

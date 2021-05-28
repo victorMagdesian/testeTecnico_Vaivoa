@@ -38,7 +38,7 @@ namespace NewCardNumber.Controllers
                 context.cards.Add(save.Card);
                 context.Clients.Add(save);
                 await context.SaveChangesAsync();
-                return save;
+                return Ok();
             }
             else
             {

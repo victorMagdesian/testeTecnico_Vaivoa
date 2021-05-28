@@ -42,12 +42,20 @@ namespace NewCardNumber.Models
                             case 0:
                             case 2:
                             case 4:
+                            case 6:
+                            case 8:
+                            case 10:
+                            case 12:
                             case 14:
                                 if (n < 5) { sum += n * 2; } else { n = n * 2; sum += ((n / 10) + (n % 10)); }
                                 break;
 
                             case 1:
                             case 3:
+                            case 5:
+                            case 7:
+                            case 9:
+                            case 11:
                             case 13:
                                 sum += n;
                                 break;
@@ -57,7 +65,7 @@ namespace NewCardNumber.Models
                     }
                     sum = ((sum / 10) + (sum % 10));
 
-                    if ( sum <= 9) { CardNum += sum; } else { CardNum += ((sum / 10) + (sum % 10)); }
+                    if (sum <= 9) { CardNum += sum; } else { CardNum += ((sum / 10) + (sum % 10)); }
 
                     return CardNum;
 
@@ -85,12 +93,20 @@ namespace NewCardNumber.Models
                             case 0:
                             case 2:
                             case 4:
+                            case 6:
+                            case 8:
+                            case 10:
+                            case 12:
                             case 14:
                                 if (nm < 5) { summ += nm * 2; } else { nm = nm * 2; summ += ((nm / 10) + (nm % 10)); }
                                 break;
 
                             case 1:
                             case 3:
+                            case 5:
+                            case 7: 
+                            case 9:
+                            case 11:
                             case 13:
                                 summ += nm;
                                 break;
